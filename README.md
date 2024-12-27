@@ -16,7 +16,7 @@ This project is a web application designed for manga processing. Users can uploa
 1. Clone this repository:
    ```bash
    git clone https://github.com/yourusername/manga-processing-webapp.git
-   cd manga-processing-webapp
+   cd ReManga_web
    ```
 2. Install the necessary dependencies:
    ```bash
@@ -58,7 +58,7 @@ Bu proje, manga işlemleri için tasarlanmış bir web uygulamasıdır. Kullanı
 1. Bu depoyu klonlayın:
    ```bash
    git clone https://github.com/yourusername/manga-processing-webapp.git
-   cd manga-processing-webapp
+   cd ReManga_web
    ```
 2. Gerekli bağımlılıkları yükleyin:
    ```bash
