@@ -7,7 +7,7 @@ This project is a web application designed for manga processing. Users can uploa
 
 ### Features
 - **Colorize**: Add color to black-and-white manga pages.
-- **Translate**: Translate manga text to another language.
+- **Translate**: Translate manga text to another language(The project involves English-Turkish translation. Changes made in the code can also be translated into other languages.).
 - **Combine**: Perform both operations simultaneously.
 - User-friendly interface with clear buttons and status indicators.
 - Automatic download of processed results.
@@ -36,7 +36,6 @@ manga-processing-webapp/
 ├── templates/
 │   ├── index.html
 ├── app.py
-├── requirements.txt
 └── README.md
 ```
 
@@ -49,7 +48,7 @@ Bu proje, manga işlemleri için tasarlanmış bir web uygulamasıdır. Kullanı
 
 ### Özellikler
 - **Renklendirme**: Siyah-beyaz manga sayfalarına renk ekleyin.
-- **Çeviri**: Manga metinlerini başka bir dile çevirin.
+- **Çeviri**: Manga metinlerini başka bir dile çevirin(The project involves English-Turkish translation. Changes made in the code can also be translated into other languages.).
 - **Birleştirme**: Her iki işlemi aynı anda gerçekleştirin.
 - Kullanıcı dostu arayüz ile kolay kullanım.
 - İşlem sonuçlarının otomatik indirilmesi.
@@ -78,6 +77,5 @@ manga-processing-webapp/
 ├── templates/
 │   ├── index.html
 ├── app.py
-├── requirements.txt
 └── README.md
 ```
