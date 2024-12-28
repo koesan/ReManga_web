@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manga Processing</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('/static/wallpaper.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        main {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2em;
+            color: #ff4c4c;
+        }
+        label, select, input[type="file"], button {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            font-size: 1rem;
+        }
+        select, input[type="file"] {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #1e1e1e;
+            color: #ffffff;
+        }
+        button, #download-link, #reset-button {
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ff4c4c;
+            color: #ffffff;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            width: 100%;
+            margin-top: 10px;
+        }
+        button:hover, #download-link:hover, #reset-button:hover {
+            background-color: #e63939;
+        }
+        #download-link {
+            background-color: #28a745;
+        }
+        #download-link:hover {
+            background-color: #218838;
+        }
+        #loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        #loading-overlay .spinner {
+            width: 50px;
+            height: 50px;
+            border: 6px solid rgba(255, 255, 255, 0.3);
+            border-top: 6px solid #ffffff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @media (max-width: 768px) {
+            main {
+                margin: 20px;
+                padding: 15px;
+            }
+            header h1 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <header>
+            <h1>Manga Processing Web App</h1>
+        </header>
+        <form id="process-form">
+            <label for="operation">Choose an operation:</label>
+            <select id="operation" name="operation" required>
+                <option value="colorize">Colorize</option>
+                <option value="translate">Translate</option>
+                <option value="both">Colorize & Translate</option>
+            </select>
+            <label for="images">Upload Images (Max 5)</label>
+            <input type="file" id="images" name="images" accept="image/*" multiple required>
+            <p id="file-error" style="color: red; display: none;">You can upload up to 5 files only.</p>
+            <button type="submit">Submit</button>
+        </form>
+        <div id="download-section" style="display:none;">
+            <h3>Processing complete!</h3>
+            <a id="download-link" href="" download>Click here to download the results</a>
+            <br>
+            <br>
+            <button id="reset-button" onclick="resetForm()">Submit Again</button>
+        </div>
+    </main>
+    <div id="loading-overlay">
+        <div class="spinner"></div>
+    </div>
+    <script>
+        const form = document.getElementById('process-form');
+        const loadingOverlay = document.getElementById('loading-overlay');
+        const downloadSection = document.getElementById('download-section');
+        const downloadLink = document.getElementById('download-link');
+        const resetButton = document.getElementById('reset-button');
+        const fileInput = document.getElementById('images');
+        const fileError = document.getElementById('file-error');
+
+        fileInput.addEventListener('change', function () {
+            const files = fileInput.files;
+            if (files.length > 5) {
+                fileError.style.display = 'block';
+                fileInput.value = ''; 
+            } else {
+                fileError.style.display = 'none';
+            }
+        });
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            loadingOverlay.style.display = 'flex';
+
+            const formData = new FormData(form);
+
+            try {
+                const response = await fetch('/process', {
+                    method: 'POST',
+                    body: formData,
+                });
+
+                const data = await response.json();
+
+                if (data.status === 'ready') {
+                    downloadLink.href = data.download_url;
+                    downloadSection.style.display = 'block';
+                    form.style.display = 'none';
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            } finally {
+                loadingOverlay.style.display = 'none';
+            }
+        });
+
+        function resetForm() {
+            window.location.reload();
+        }
+    </script>
+</body>
+</html>
