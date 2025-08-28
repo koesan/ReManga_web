@@ -1,5 +1,17 @@
 # ReManga (Manga Processing Web App)
 
+
+
+![Screenshot from 2024-12-28 05-31-22](https://github.com/user-attachments/assets/b647b75e-c3cb-480d-9837-36dd25f84e12)
+
+
+[![Hugging Face](https://img.shields.io/badge/HuggingFace-%23FF9900.svg?style=for-the-badge&logo=huggingface&logoColor=white)](https://huggingface.co/spaces/koesan/mangaspaces)
+
+**🇹🇷 Hugging Face üzerinde test etmek için yukarıdaki simgeye tıklayabilirsiniz.**  
+**🇬🇧 You can click the icon above to test on Hugging Face.**
+
+---
+
 ## English
 
 ### Description
@@ -66,9 +78,3 @@ Bu proje, manga çevri ve renklendirme için tasarlanmış bir web uygulamasıd�
    python app.py
    ```
 5. Web tarayıcınızı açın ve `http://127.0.0.1:5000` adresine gidin.
-
----
-
-![Screenshot from 2024-12-28 05-31-22](https://github.com/user-attachments/assets/b647b75e-c3cb-480d-9837-36dd25f84e12)
-
-
