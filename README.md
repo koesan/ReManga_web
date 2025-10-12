@@ -7,7 +7,7 @@
 
 ## 📎 Live Demo - Canlı Demo
 
-[![Hugging Face](https://img.shields.io/badge/🤗%20Hugging%20Face-Demo-yellow?style=for-the-badge&logo=huggingface&logoColor=white)](https://huggingface.co/spaces/koesan/pathfinding-algorithms)
+[![Hugging Face](https://img.shields.io/badge/🤗%20Hugging%20Face-Demo-yellow?style=for-the-badge&logo=huggingface&logoColor=white)](https://huggingface.co/spaces/koesan/mangaspaces)
 
 **🇹🇷 Hugging Face üzerinde test etmek için yukarıdaki simgeye tıklayabilirsiniz.**  
 **🇬🇧 You can click the icon above to test on Hugging Face.**
